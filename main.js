@@ -69,10 +69,14 @@ document.getElementById("cards").innerHTML = PocCards.map((card) => {
   return `
         <div class="card">
           <img src="${card.img}" alt="${card.title}">
+          <div class="title">
           <h2>${card.title}</h2>
           <p>${card.content}</p>
-          <p>Weight: ${card.kg} kg</p>
-          <p>Age: ${card.age} years old</p>
+          </div>
+          <div class="flex">
+            <b><p>${card.kg} kg</p></b>
+            <b><p>${card.age} age</p></b>
+          </div>
         </div>
       `;
 }).join("");
