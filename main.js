@@ -65,18 +65,62 @@ const PocCards = [
   },
 ];
 
-document.getElementById("cards").innerHTML = PocCards.map((card) => {
-  return `
-        <div class="card">
-          <img src="${card.img}" alt="${card.title}">
-          <div class="title">
+// add filer function input 
+
+document.getElementById("filter").addEventListener("input", (e) => {
+  const filterValue = e.target.value.toLowerCase();
+
+  const filteredCards = PocCards.filter((card) =>
+    card.title.toLowerCase().includes(filterValue) ||
+    card.content.toLowerCase().includes(filterValue)
+  );
+
+  document.getElementById("cards").innerHTML = filteredCards.map((card) => {
+    return `
+      <div class="card">
+        ${card.img ? `<img src="${card.img}" alt="${card.title}">` : ''}
+        <div class="title">
           <h2>${card.title}</h2>
           <p>${card.content}</p>
-          </div>
-          <div class="flex">
-            <b><p>${card.kg} kg</p></b>
-            <b><p>${card.age} age</p></b>
-          </div>
         </div>
-      `;
+        <div class="flex">
+          <b><p>${card.kg} kg</p></b>
+          <b><p>${card.age} age</p></b>
+        </div>
+      </div>
+    `;
+  }).join("");
+});
+
+// Initial render
+document.getElementById("cards").innerHTML = PocCards.map((card) => {
+  return `
+    <div class="card">
+      ${card.img ? `<img src="${card.img}" alt="${card.title}">` : ''}
+      <div class="title">
+        <h2>${card.title}</h2>
+        <p>${card.content}</p>
+      </div>
+      <div class="flex">
+        <b><p>${card.kg} kg</p></b>
+        <b><p>${card.age} age</p></b>
+      </div>
+    </div>
+  `;
 }).join("");
+
+// document.getElementById("cards").innerHTML = PocCards.map((card) => {
+//   return `
+//         <div class="card">
+//           <img src="${card.img}" alt="${card.title}">
+//           <div class="title">
+//           <h2>${card.title}</h2>
+//           <p>${card.content}</p>
+//           </div>
+//           <div class="flex">
+//             <b><p>${card.kg} kg</p></b>
+//             <b><p>${card.age} age</p></b>
+//           </div>
+//         </div>
+//       `;
+// }).join("");

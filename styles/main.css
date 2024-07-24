@@ -1,13 +1,20 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family:  sans-serif;
+  font-family: sans-serif;
 }
 
 body {
   background-color: rgba(255, 216, 69, 1);
 }
+
+
+
+::-webkit-scrollbar {
+  display: none;
+}
+
 
 .container {
   display: flex;
@@ -76,6 +83,7 @@ body {
   gap: 30px;
   margin-top: 100px;
   margin-bottom: 100px;
+  transition: 1s;
 }
 
 .card {
@@ -104,7 +112,7 @@ body {
   margin: 10px;
 }
 
-.flex{
+.flex {
   display: flex;
 }
 
